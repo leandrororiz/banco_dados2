@@ -1,0 +1,37 @@
+create database dados;
+
+create table banco(
+id int not null auto_increment primary key,
+nome_banco varchar (30),
+nome_cliente varchar (30),
+agencia bigint (4),
+conta bigint (9),
+cpf bigint (11),
+nascimento datetime
+); 
+
+
+INSERT INTO banco (nome_banco, nome_cliente, agencia, conta, cpf, nascimento) VALUES ('Caixa', 'Leandro', 2024, 22072024, 03105546601, '1995-07-25');
+INSERT INTO banco (nome_banco, nome_cliente, agencia, conta, cpf, nascimento) VALUES ('Santander', 'Maria', 2023, 22072023, 13105546602, '1994-03-26');
+INSERT INTO banco (nome_banco, nome_cliente, agencia, conta, cpf, nascimento) VALUES ('Banco do Brasil', 'JOÄO', 2022, 22072022, 23105546603, '1993-04-10');
+INSERT INTO banco (nome_banco, nome_cliente, agencia, conta, cpf, nascimento) VALUES ('Itau', 'Lara', 2021, 22072024, 23105546604, '1992-01-15');
+INSERT INTO banco (nome_banco, nome_cliente, agencia, conta, cpf, nascimento) VALUES ('Santander', 'rodrigo', 2023, 22072023, 13105546607, '1994-03-12');
+INSERT INTO banco (nome_banco, nome_cliente, agencia, conta, cpf, nascimento) VALUES ('Santander', 'zeus', 2023, 22072023, 13105546608, '1994-03-13');
+INSERT INTO banco (nome_banco, nome_cliente, agencia, conta, cpf, nascimento) VALUES ('Santander', 'Lucas', 2022, 22072021, 23105546603, '1993-04-10');
+
+SELECT * FROM banco;
+SELECT * FROM banco ORDER BY nome_cliente;
+SELECT * FROM banco ORDER BY nome_banco DESC;
+SELECT nome_banco, nome_cliente, agencia, conta, cpf, nascimento FROM banco ORDER BY nome_banco;
+SELECT agencia FROM banco WHERE agencia = 2021 ORDER BY nome_cliente;
+SELECT nome_banco, cpf FROM banco WHERE agencia = 2024 ORDER BY nome_cliente;
+SELECT nome_banco FROM banco WHERE agencia <= 2023 ORDER BY nome_cliente;
+SELECT nome_banco FROM banco WHERE agencia >= 2023 ORDER BY nome_cliente;
+SELECT nome_banco FROM banco WHERE agencia != 2023 ORDER BY nome_cliente;
+SELECT nome_banco FROM banco WHERE agencia <> 2023 ORDER BY nome_cliente;
+SELECT nome_banco, cpf FROM banco WHERE agencia BETWEEN 2021 and 2023;
+SELECT nome_cliente, cpf, agencia FROM banco WHERE agencia BETWEEN 2021 and 2023 order by agencia desc, nome_cliente asc;
+
+SELECT agencia, nome_cliente FROM banco WHERE agencia IN (2024, 2023, 2021, 2022) ORDER BY nome_cliente;
+SELECT * FROM banco WHERE agencia > 2021 AND conta < 22072023 ORDER BY nome_banco;
+SELECT nome_cliente, nome_banco, agencia FROM banco WHERE agencia > 2021 AND conta < 22072023 ORDER BY nome_banco;
